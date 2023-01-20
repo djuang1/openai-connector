@@ -36,17 +36,17 @@ This operation will send a prompt to OpenAI and generate a completion.
 #### Code Example
 ```
 <flow name="chatgpt-project-mule4Flow">
-		<http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/test"/>
-		<openai:create-completion doc:name="Create Completion"  config-ref="OpenAI_Config" prompt='#[payload default "Somebody once told me the world is gonna roll me"]' model="ada"/>
-		<ee:transform doc:name="Transform Message" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
-output application/json
----
-payload]]></ee:set-payload>
-			</ee:message>
-		</ee:transform>
-	</flow>
+    <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/test"/>
+    <openai:create-completion doc:name="Create Completion"  config-ref="OpenAI_Config" prompt='#[payload default "Somebody once told me the world is gonna roll me"]' model="ada"/>
+    <ee:transform doc:name="Transform Message" >
+        <ee:message >
+            <ee:set-payload ><![CDATA[%dw 2.0
+            output application/json
+            ---
+            payload]]></ee:set-payload>
+        </ee:message>
+    </ee:transform>
+</flow>
 ```
 
 
@@ -57,20 +57,20 @@ This operation will generate an image file with DALL-E given a prompt. `response
 #### Code Example
 ```
 <flow name="chatgpt-project-mule4Flow1">
-		<http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/image"/>
-		<openai:create-image-file doc:name="Create Image File"  config-ref="OpenAI_Config" prompt='#["penguin"]'/>
-		<ee:transform doc:name="Transform Message" >
-			<ee:message >
-				<ee:set-payload ><![CDATA[%dw 2.0
-import * from dw::core::Binaries
-output application/octet-stream
----
-fromBase64(payload)
-]]></ee:set-payload>
-			</ee:message>
-		</ee:transform>
-		<file:write doc:name="Write" path="/Users/djuang/Desktop/image.png"/>
-	</flow>
+    <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/image"/>
+    <openai:create-image-file doc:name="Create Image File"  config-ref="OpenAI_Config" prompt='#["penguin"]'/>
+    <ee:transform doc:name="Transform Message" >
+        <ee:message >
+            <ee:set-payload ><![CDATA[%dw 2.0
+            import * from dw::core::Binaries
+            output application/octet-stream
+            ---
+            fromBase64(payload)
+            ]]></ee:set-payload>
+        </ee:message>
+    </ee:transform>
+    <file:write doc:name="Write" path="/Users/djuang/Desktop/image.png"/>
+</flow>
 ```
 
 ### Generate Image URL
@@ -80,10 +80,10 @@ This operation will generate an image URL with DALL-E given a prompt. `response_
 #### Code Example
 ```
 <flow name="chatgpt-project-mule4Flow2">
-		<http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/url"/>
-		<openai:create-image-url doc:name="Create Image URL"  config-ref="OpenAI_Config" prompt='#["mulesoft"]'/>
-		<http:request method="GET" doc:name="Request" url="#[payload]"/>
-	</flow>
+    <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/url"/>
+    <openai:create-image-url doc:name="Create Image URL"  config-ref="OpenAI_Config" prompt='#["mulesoft"]'/>
+    <http:request method="GET" doc:name="Request" url="#[payload]"/>
+</flow>
 ```
 
 ```
