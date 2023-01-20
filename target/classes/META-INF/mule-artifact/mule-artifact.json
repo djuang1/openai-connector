@@ -3,7 +3,7 @@
     "id": "java",
     "attributes": {
       "type": "org.mule.extension.openai.internal.OpenAIExtension",
-      "version": "1.0.10-SNAPSHOT"
+      "version": "1.0.12-SNAPSHOT"
     }
   },
   "name": "OpenAI",

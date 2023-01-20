@@ -3,7 +3,6 @@ package org.mule.extension.openai.internal;
 import static org.mule.runtime.extension.api.annotation.param.MediaType.ANY;
 
 import org.mule.runtime.extension.api.annotation.param.MediaType;
-import org.apache.commons.codec.binary.Base64;
 import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.Connection;
 import org.mule.runtime.extension.api.annotation.param.Optional;
@@ -14,7 +13,7 @@ import static org.mule.runtime.extension.api.annotation.param.Optional.PAYLOAD;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-
+import java.util.Base64;
 import java.util.List;
 
 import com.theokanning.openai.completion.CompletionChoice;
@@ -44,24 +43,41 @@ public class OpenAIOperations {
   }
 
   @MediaType("image/png")
-  @DisplayName("Create Image")
-  public InputStream createImage(@Connection OpenAIConnection connection,
+  @DisplayName("Create Image File")
+  public InputStream createImageFile(@Connection OpenAIConnection connection,
       @Optional(defaultValue = PAYLOAD) String prompt) {
 
-    // System.out.println("\nCreating image...");
+    // System.out.println("\nCreating image file...");
     CreateImageRequest imageRequest = CreateImageRequest.builder()
         .prompt(prompt)
         .n(1)
         .responseFormat("b64_json")
-        .size("256x256")
+        .size("512x512")
         .user("MuleSoft OpenAI Connector")
         .build();
 
     List<Image> images = connection.getClient().createImage(imageRequest).getData();
-
-    byte[] decodedString = Base64.decodeBase64(images.get(0).getB64Json());
-
-    // return images.get(0).getB64Json();
+    byte[] decodedString = images.get(0).getB64Json().getBytes();
+    
     return new ByteArrayInputStream(decodedString);
+  }
+
+  @MediaType(value = ANY, strict = false)
+  @DisplayName("Create Image URL")
+  public String createImageUrl(@Connection OpenAIConnection connection,
+      @Optional(defaultValue = PAYLOAD) String prompt) {
+
+    // System.out.println("\nCreating image URL...");
+    CreateImageRequest imageRequest = CreateImageRequest.builder()
+        .prompt(prompt)
+        .n(1)
+        .responseFormat("url")
+        .size("512x512")
+        .user("MuleSoft OpenAI Connector")
+        .build();
+
+    List<Image> images = connection.getClient().createImage(imageRequest).getData();
+    
+    return images.get(0).getUrl();
   }
 }

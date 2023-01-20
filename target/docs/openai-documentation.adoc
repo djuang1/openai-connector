@@ -46,7 +46,8 @@ Default configuration
 
 ==== Associated Operations
 * <<createCompletion>> {nbsp}
-* <<createImage>> {nbsp}
+* <<createImageFile>> {nbsp}
+* <<createImageUrl>> {nbsp}
 
 
 
@@ -85,9 +86,9 @@ Default configuration
 * OPENAI:CONNECTIVITY {nbsp}
 
 
-[[createImage]]
-=== Create Image
-`<openai:create-image>`
+[[createImageFile]]
+=== Create Image File
+`<openai:create-image-file>`
 
 
 ==== Parameters
@@ -109,6 +110,38 @@ Default configuration
 [cols=".^50%,.^50%"]
 |======================
 | *Type* a| Binary
+|======================
+
+==== For Configurations.
+* <<config>> {nbsp}
+
+==== Throws
+* OPENAI:RETRY_EXHAUSTED {nbsp}
+* OPENAI:CONNECTIVITY {nbsp}
+
+
+[[createImageUrl]]
+=== Create Image URL
+`<openai:create-image-url>`
+
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Prompt a| String |  |  +++#[payload]+++ | {nbsp}
+| Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| String
 |======================
 
 ==== For Configurations.

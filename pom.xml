@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.dejim</groupId>
     <artifactId>openai</artifactId>
-    <version>1.0.10-SNAPSHOT</version>
+    <version>1.0.12-SNAPSHOT</version>
     <packaging>mule-extension</packaging>
     <name>OpenAI Extension</name>
 
@@ -29,12 +29,7 @@
             <artifactId>client</artifactId>
             <version>0.9.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.15</version>
-        </dependency>
+
 
     </dependencies>
 
