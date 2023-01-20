@@ -18,7 +18,14 @@ MuleSoft Connector for OpenAI's GPT-3 APIs. It leverages the Java libraries from
 </dependency>
 ```
 
-![](https://raw.githubusercontent.com/djuang1/openai-connector/main/docs/openai_config.png | width=150)
+## Configuration
+
+1. Log into your [OpenAI account](https://beta.openai.com/login/)
+2. In your account settings, click [View API keys](https://beta.openai.com/account/api-keys).
+3. Click `+ Create new secret key`
+4. Copy your API key.
+
+<img src="https://raw.githubusercontent.com/djuang1/openai-connector/main/docs/openai_config.png" width="350"/>
 
 ## Operations
 
