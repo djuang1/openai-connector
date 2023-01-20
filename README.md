@@ -18,6 +18,8 @@ MuleSoft Connector for OpenAI's GPT-3 APIs. It leverages the Java libraries from
 </dependency>
 ```
 
+![](https://raw.githubusercontent.com/djuang1/openai-connector/main/docs/openai_config.png | width=150)
+
 ## Operations
 
 ### Send Prompt
