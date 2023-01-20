@@ -1,7 +1,7 @@
 # OpenAI Connector for Mule 4.x
 
 ## Overview
-MuleSoft Connector for OpenAI's GPT-3 APIs. It leverages the Java libraries from this [project from Theo Kanning](https://github.com/TheoKanning/openai-java). 
+MuleSoft Connector for OpenAI's GPT-3 APIs. It leverages the Java libraries from this [project from Theo Kanning](https://github.com/TheoKanning/openai-java). An example of using the connector can be found [here](https://github.com/djuang1/openai-example-mule4)
 
 ## Installation Instructions
 
