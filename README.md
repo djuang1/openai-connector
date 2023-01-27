@@ -6,7 +6,7 @@ MuleSoft Connector for OpenAI's GPT-3 APIs. It leverages the Java libraries from
 ## Installation Instructions
 
 1.  Clone the repo
-2.  Deploy the connector to your local Maven repo  `mvn clean install`
+2.  Deploy the connector to your local Maven repo  `mvn clean install`. If you are using Maven 3.8.1+, you may run into issues with HTTP repositories being blocked. Follow the help article [here](https://help.mulesoft.com/s/article/Maven-error-when-building-application-Blocked-Mirror-for-repositories) to resolve the issue. 
 3.  Add the connector dependency to your project `pom.xml` file
 
 ```
