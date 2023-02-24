@@ -13,7 +13,7 @@ MuleSoft Connector for OpenAI's GPT-3 APIs. It leverages the Java libraries from
 <dependency>
     <groupId>com.dejim</groupId>
     <artifactId>openai</artifactId>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.4</version>
     <classifier>mule-plugin</classifier>
 </dependency>
 ```
@@ -37,7 +37,7 @@ This operation will send a prompt to OpenAI and generate a completion.
 ```
 <flow name="chatgpt-project-mule4Flow">
     <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/test"/>
-    <openai:create-completion doc:name="Create Completion"  config-ref="OpenAI_Config" prompt='#[payload default "Somebody once told me the world is gonna roll me"]' model="ada"/>
+    <openai:create-completion doc:name="Create Completion" config-ref="OpenAI_Config" model="text-davinci-003" prompt="Somebody once told me the world is gonna roll me" maxTokens="#[1028]" temperature="0.8"/>
     <ee:transform doc:name="Transform Message" >
         <ee:message >
             <ee:set-payload ><![CDATA[%dw 2.0
