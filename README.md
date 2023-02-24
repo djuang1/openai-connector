@@ -88,5 +88,5 @@ This operation will generate an image URL with DALL-E given a prompt. `response_
 
 ```
 Author: Dejim Juang - dejimj@gmail.com
-Last Update: January 20, 2023
+Last Update: February 24, 2023
 ```
