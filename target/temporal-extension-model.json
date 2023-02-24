@@ -1,14 +1,14 @@
 {
   "name": "OpenAI",
   "description": "",
-  "version": "1.0.12-SNAPSHOT",
+  "version": "1.0.4",
   "vendor": "Mulesoft",
   "category": "COMMUNITY",
   "xmlDsl": {
     "prefix": "openai",
     "namespace": "http://www.mulesoft.org/schema/mule/openai",
     "schemaLocation": "http://www.mulesoft.org/schema/mule/openai/current/mule-openai.xsd",
-    "schemaVersion": "1.0.12-SNAPSHOT",
+    "schemaVersion": "1.0.4",
     "xsdFileName": "mule-openai.xsd"
   },
   "resources": [],
@@ -228,6 +228,99 @@
                 {
                   "type": {
                     "format": "java",
+                    "type": "Number",
+                    "annotations": {
+                      "classInformation": {
+                        "classname": "java.lang.Integer",
+                        "hasDefaultConstructor": false,
+                        "isInterface": false,
+                        "isInstantiable": false,
+                        "isAbstract": false,
+                        "isFinal": true,
+                        "implementedInterfaces": [
+                          "java.lang.Comparable"
+                        ],
+                        "parent": "java.lang.Number",
+                        "genericTypes": [],
+                        "isMap": false
+                      },
+                      "int": {}
+                    }
+                  },
+                  "hasDynamicType": false,
+                  "required": false,
+                  "isConfigOverride": false,
+                  "expressionSupport": "SUPPORTED",
+                  "defaultValue": "50",
+                  "role": "BEHAVIOUR",
+                  "dslConfiguration": {
+                    "allowsInlineDefinition": true,
+                    "allowsReferences": true,
+                    "allowTopLevelDefinition": false
+                  },
+                  "layoutModel": {
+                    "password": false,
+                    "text": false,
+                    "query": false,
+                    "order": 2
+                  },
+                  "allowedStereotypeModels": [],
+                  "name": "maxTokens",
+                  "displayModel": {
+                    "displayName": "Max Tokens"
+                  },
+                  "description": "",
+                  "modelProperties": {}
+                },
+                {
+                  "type": {
+                    "format": "java",
+                    "type": "Number",
+                    "annotations": {
+                      "classInformation": {
+                        "classname": "java.lang.Double",
+                        "hasDefaultConstructor": false,
+                        "isInterface": false,
+                        "isInstantiable": false,
+                        "isAbstract": false,
+                        "isFinal": true,
+                        "implementedInterfaces": [
+                          "java.lang.Comparable"
+                        ],
+                        "parent": "java.lang.Number",
+                        "genericTypes": [],
+                        "isMap": false
+                      }
+                    }
+                  },
+                  "hasDynamicType": false,
+                  "required": false,
+                  "isConfigOverride": false,
+                  "expressionSupport": "SUPPORTED",
+                  "defaultValue": "0.5",
+                  "role": "BEHAVIOUR",
+                  "dslConfiguration": {
+                    "allowsInlineDefinition": true,
+                    "allowsReferences": true,
+                    "allowTopLevelDefinition": false
+                  },
+                  "layoutModel": {
+                    "password": false,
+                    "text": false,
+                    "query": false,
+                    "order": 3
+                  },
+                  "allowedStereotypeModels": [],
+                  "name": "temperature",
+                  "displayModel": {
+                    "displayName": "Temperature"
+                  },
+                  "description": "",
+                  "modelProperties": {}
+                },
+                {
+                  "type": {
+                    "format": "java",
                     "type": "String"
                   },
                   "hasDynamicType": false,
@@ -252,7 +345,7 @@
                     "password": false,
                     "text": false,
                     "query": false,
-                    "order": 2
+                    "order": 4
                   },
                   "allowedStereotypeModels": [],
                   "name": "model",
@@ -278,7 +371,7 @@
                     "password": false,
                     "text": false,
                     "query": false,
-                    "order": 3,
+                    "order": 5,
                     "tabName": "Advanced"
                   },
                   "allowedStereotypeModels": [],
@@ -320,7 +413,7 @@
                     "password": false,
                     "text": false,
                     "query": false,
-                    "order": 4,
+                    "order": 6,
                     "tabName": "Advanced"
                   },
                   "allowedStereotypeModels": [],
@@ -351,7 +444,7 @@
                     "password": false,
                     "text": false,
                     "query": false,
-                    "order": 5,
+                    "order": 7,
                     "tabName": "Advanced"
                   },
                   "allowedStereotypeModels": [],
@@ -496,7 +589,7 @@
                     "password": false,
                     "text": false,
                     "query": false,
-                    "order": 6,
+                    "order": 8,
                     "tabName": "Advanced"
                   },
                   "allowedStereotypeModels": [],
@@ -1448,6 +1541,53 @@
                   },
                   "description": "",
                   "modelProperties": {}
+                },
+                {
+                  "type": {
+                    "format": "java",
+                    "type": "Number",
+                    "annotations": {
+                      "classInformation": {
+                        "classname": "java.lang.Integer",
+                        "hasDefaultConstructor": false,
+                        "isInterface": false,
+                        "isInstantiable": false,
+                        "isAbstract": false,
+                        "isFinal": true,
+                        "implementedInterfaces": [
+                          "java.lang.Comparable"
+                        ],
+                        "parent": "java.lang.Number",
+                        "genericTypes": [],
+                        "isMap": false
+                      },
+                      "int": {}
+                    }
+                  },
+                  "hasDynamicType": false,
+                  "required": false,
+                  "isConfigOverride": false,
+                  "expressionSupport": "SUPPORTED",
+                  "defaultValue": "30",
+                  "role": "BEHAVIOUR",
+                  "dslConfiguration": {
+                    "allowsInlineDefinition": true,
+                    "allowsReferences": true,
+                    "allowTopLevelDefinition": false
+                  },
+                  "layoutModel": {
+                    "password": false,
+                    "text": false,
+                    "query": false,
+                    "order": 2
+                  },
+                  "allowedStereotypeModels": [],
+                  "name": "timeout",
+                  "displayModel": {
+                    "displayName": "Timeout"
+                  },
+                  "description": "",
+                  "modelProperties": {}
                 }
               ],
               "exclusiveParametersModels": [],
@@ -1617,7 +1757,7 @@
                     "password": false,
                     "text": false,
                     "query": false,
-                    "order": 2,
+                    "order": 3,
                     "tabName": "Advanced"
                   },
                   "allowedStereotypeModels": [],
@@ -1826,7 +1966,7 @@
                     "password": false,
                     "text": false,
                     "query": false,
-                    "order": 3,
+                    "order": 4,
                     "tabName": "Advanced"
                   },
                   "allowedStereotypeModels": [],

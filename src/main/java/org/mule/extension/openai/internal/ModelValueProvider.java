@@ -9,7 +9,7 @@ public class ModelValueProvider implements ValueProvider{
 
     @Override
     public Set<Value> resolve() throws ValueResolvingException {
-        return ValueBuilder.getValuesFor("davinci", "curie", "ada", "babbage");
+        return ValueBuilder.getValuesFor("text-davinci-003", "text-curie-001", "text-ada-001", "text-babbage-001","code-davinci-002");
     }
     
 }

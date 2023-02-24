@@ -40,6 +40,7 @@ Default configuration
 |======================
 | Name | Type | Description | Default Value | Required
 | API Key a| String |  |  | *x*{nbsp}
+| Timeout a| Number |  |  +++30+++ | {nbsp}
 | Reconnection a| <<Reconnection>> |  +++When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy+++ |  | {nbsp}
 | Pooling Profile a| <<PoolingProfile>> |  +++Characteristics of the connection pool+++ |  | {nbsp}
 |======================
@@ -64,6 +65,8 @@ Default configuration
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | | *x*{nbsp}
 | Prompt a| String |  |  +++#[payload]+++ | {nbsp}
+| Max Tokens a| Number |  |  +++50+++ | {nbsp}
+| Temperature a| Number |  |  +++0.5+++ | {nbsp}
 | Model a| String |  |  | *x*{nbsp}
 | Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
 | Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}

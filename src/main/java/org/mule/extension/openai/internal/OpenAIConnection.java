@@ -1,13 +1,15 @@
 package org.mule.extension.openai.internal;
 
-import com.theokanning.openai.OpenAiService;
+import java.time.Duration;
+
+import com.theokanning.openai.service.OpenAiService;
 
 public final class OpenAIConnection {
 
   private OpenAiService client;
 
-  public OpenAIConnection(String apiKey) {
-    this.client = new OpenAiService(apiKey);
+  public OpenAIConnection(String apiKey, Integer timeout) {
+    this.client = new OpenAiService(apiKey, Duration.ofSeconds(timeout));
   }
 
   public OpenAiService getClient() {
