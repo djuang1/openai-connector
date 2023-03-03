@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.dejim</groupId>
     <artifactId>openai</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>mule-extension</packaging>
     <name>OpenAI Extension</name>
 
@@ -20,17 +20,17 @@
         <dependency>
             <groupId>com.theokanning.openai-gpt3-java</groupId>
             <artifactId>api</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
         </dependency>
         <dependency>
             <groupId>com.theokanning.openai-gpt3-java</groupId>
             <artifactId>client</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
         </dependency>
          <dependency>
             <groupId>com.theokanning.openai-gpt3-java</groupId>
             <artifactId>service</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
         </dependency>
 
 

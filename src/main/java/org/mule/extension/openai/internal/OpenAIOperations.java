@@ -12,10 +12,15 @@ import static org.mule.runtime.extension.api.annotation.param.Optional.PAYLOAD;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.theokanning.openai.completion.CompletionChoice;
 import com.theokanning.openai.completion.CompletionRequest;
+import com.theokanning.openai.completion.chat.ChatCompletionChoice;
+import com.theokanning.openai.completion.chat.ChatCompletionRequest;
+import com.theokanning.openai.completion.chat.ChatMessage;
+import com.theokanning.openai.completion.chat.ChatMessageRole;
 import com.theokanning.openai.image.CreateImageRequest;
 import com.theokanning.openai.image.Image;
 
@@ -27,7 +32,7 @@ public class OpenAIOperations {
       @Optional(defaultValue = PAYLOAD) String prompt,
       @DisplayName("Max Tokens") @Optional(defaultValue = "50") Integer maxTokens,
       @DisplayName("Temperature") @Optional(defaultValue = "0.5") Double temperature,
-      @OfValues(ModelValueProvider.class) String model) {
+      @OfValues(CompletionModelsValueProvider.class) String model) {
 
     // System.out.println("\nCreating completion...");
     CompletionRequest completionRequest = CompletionRequest.builder()
@@ -41,9 +46,37 @@ public class OpenAIOperations {
 
     List<CompletionChoice> choices = connection.getClient().createCompletion(completionRequest).getChoices();
 
-    System.out.println(choices.get(0).getText());
+    //System.out.println(choices.get(0).getText());
 
     return choices.get(0).getText();
+  }
+
+  @MediaType(value = ANY, strict = false)
+  @DisplayName("Create Chat Completion")
+  public String createChatCompletion(@Connection OpenAIConnection connection,
+      @Optional(defaultValue = PAYLOAD) String prompt,
+      @DisplayName("Max Tokens") @Optional(defaultValue = "50") Integer maxTokens,
+      @DisplayName("Temperature") @Optional(defaultValue = "0.5") Double temperature,
+      @OfValues(ChatModelsValueProvider.class) String model) {
+
+        final List<ChatMessage> messages = new ArrayList<>();
+        final ChatMessage systemMessage = new ChatMessage(ChatMessageRole.USER.value(), prompt);
+        messages.add(systemMessage);
+
+        // System.out.println("\nCreating chat...");
+        ChatCompletionRequest chatRequest = ChatCompletionRequest.builder()
+          .model(model)
+          .messages(messages)
+          .n(1)
+          .maxTokens(maxTokens)
+          .temperature(temperature)
+          .build();
+
+        List<ChatCompletionChoice> choices = connection.getClient().createChatCompletion(chatRequest).getChoices();
+
+        //System.out.println(choices.get(0).getText());
+
+        return choices.get(0).getMessage().getContent();
   }
 
   @MediaType("image/png")

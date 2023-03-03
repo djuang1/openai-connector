@@ -2076,6 +2076,7 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#_operations">Operations</a>
 <ul class="sectlevel2">
+<li><a href="#createChatCompletion">Create Chat Completion</a></li>
 <li><a href="#createCompletion">Create Completion</a></li>
 <li><a href="#createImageFile">Create Image File</a></li>
 <li><a href="#createImageUrl">Create Image URL</a></li>
@@ -2225,6 +2226,9 @@ Default configuration
 <div class="ulist">
 <ul>
 <li>
+<p><a href="#createChatCompletion">Create Chat Completion</a> &#160;</p>
+</li>
+<li>
 <p><a href="#createCompletion">Create Completion</a> &#160;</p>
 </li>
 <li>
@@ -2243,9 +2247,9 @@ Default configuration
 <h2 id="_operations">Operations</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="createCompletion">Create Completion</h3>
+<h3 id="createChatCompletion">Create Chat Completion</h3>
 <div class="paragraph">
-<p><code>&lt;openai:create-completion&gt;</code></p>
+<p><code>&lt;openai:create-chat-completion&gt;</code></p>
 </div>
 <div class="sect3">
 <h4 id="_parameters_3">Parameters</h4>
@@ -2398,12 +2402,167 @@ Default configuration
 </div>
 </div>
 <div class="sect2">
+<h3 id="createCompletion">Create Completion</h3>
+<div class="paragraph">
+<p><code>&lt;openai:create-completion&gt;</code></p>
+</div>
+<div class="sect3">
+<h4 id="_parameters_4">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 35%;">
+<col style="width: 20%;">
+<col style="width: 5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Default Value</th>
+<th class="tableblock halign-center valign-middle">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Configuration</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the configuration to use.</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Prompt</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">#[payload]</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Max Tokens</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Number</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">50</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Temperature</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Number</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.5</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Model</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>x</strong>&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Output Mime Type</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The mime type of the payload that this operation outputs.</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Target Variable</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The name of a variable on which the operation's output will be placed</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Target Value</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">#[payload]</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reconnection Strategy</p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="ulist">
+<ul>
+<li>
+<p><a href="#reconnect">Reconnect</a></p>
+</li>
+<li>
+<p><a href="#reconnect-forever">Reconnect Forever</a></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A retry strategy in case of connectivity errors</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#160;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_output_2">Output</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>String</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_for_configurations_2">For Configurations.</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#config">Config</a> &#160;</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_throws_2">Throws</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>OPENAI:RETRY_EXHAUSTED &#160;</p>
+</li>
+<li>
+<p>OPENAI:CONNECTIVITY &#160;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="createImageFile">Create Image File</h3>
 <div class="paragraph">
 <p><code>&lt;openai:create-image-file&gt;</code></p>
 </div>
 <div class="sect3">
-<h4 id="_parameters_4">Parameters</h4>
+<h4 id="_parameters_5">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 20%;">
@@ -2495,7 +2654,7 @@ Default configuration
 </table>
 </div>
 <div class="sect3">
-<h4 id="_output_2">Output</h4>
+<h4 id="_output_3">Output</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2512,7 +2671,7 @@ Default configuration
 </table>
 </div>
 <div class="sect3">
-<h4 id="_for_configurations_2">For Configurations.</h4>
+<h4 id="_for_configurations_3">For Configurations.</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2522,7 +2681,7 @@ Default configuration
 </div>
 </div>
 <div class="sect3">
-<h4 id="_throws_2">Throws</h4>
+<h4 id="_throws_3">Throws</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2541,7 +2700,7 @@ Default configuration
 <p><code>&lt;openai:create-image-url&gt;</code></p>
 </div>
 <div class="sect3">
-<h4 id="_parameters_5">Parameters</h4>
+<h4 id="_parameters_6">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 20%;">
@@ -2623,7 +2782,7 @@ Default configuration
 </table>
 </div>
 <div class="sect3">
-<h4 id="_output_3">Output</h4>
+<h4 id="_output_4">Output</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2640,7 +2799,7 @@ Default configuration
 </table>
 </div>
 <div class="sect3">
-<h4 id="_for_configurations_3">For Configurations.</h4>
+<h4 id="_for_configurations_4">For Configurations.</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2650,7 +2809,7 @@ Default configuration
 </div>
 </div>
 <div class="sect3">
-<h4 id="_throws_3">Throws</h4>
+<h4 id="_throws_4">Throws</h4>
 <div class="ulist">
 <ul>
 <li>
