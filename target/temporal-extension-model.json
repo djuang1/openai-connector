@@ -1,14 +1,14 @@
 {
   "name": "OpenAI",
   "description": "",
-  "version": "1.0.5",
-  "vendor": "Mulesoft",
-  "category": "COMMUNITY",
+  "version": "1.0.6",
+  "vendor": "Dejim Juang",
+  "category": "CERTIFIED",
   "xmlDsl": {
     "prefix": "openai",
     "namespace": "http://www.mulesoft.org/schema/mule/openai",
     "schemaLocation": "http://www.mulesoft.org/schema/mule/openai/current/mule-openai.xsd",
-    "schemaVersion": "1.0.5",
+    "schemaVersion": "1.0.6",
     "xsdFileName": "mule-openai.xsd"
   },
   "resources": [],

@@ -1,0 +1,16 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:openai="http://www.mulesoft.org/schema/mule/openai"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/openai http://www.mulesoft.org/schema/mule/openai/current/mule-openai.xsd">
+
+    <openai:config name="OpenAI_Config">
+		<openai:connection apiKey="" />
+	</openai:config>
+
+	<flow name="createCompletionFlow">
+		<openai:create-completion config-ref="OpenAI_Config" model="text-ada-001" maxTokens="10" temperature="0.4"/>
+            <logger level="INFO" message="#[payload]"/>
+	</flow>
+
+</mule>

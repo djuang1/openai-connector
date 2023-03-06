@@ -1,9 +1,9 @@
 import com.theokanning.openai.service.OpenAiService;
 import com.theokanning.openai.completion.CompletionRequest;
-import com.theokanning.openai.completion.CompletionChoice;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.Duration;
-import java.util.List;
 
 class OpenAiTest {
     
@@ -24,11 +24,21 @@ class OpenAiTest {
 
     //service.createCompletion(completionRequest).getChoices().forEach(System.out::println);
 
-    List<CompletionChoice> choices = service.createCompletion(completionRequest).getChoices();
+    //List<CompletionChoice> choices = service.createCompletion(completionRequest).toString()
 
     //choices.get(0).getText();
 
-    System.out.println(choices.get(0).getText());
+    //System.out.println(service.createCompletion(completionRequest).toString());
 
+    ObjectMapper mapper = new ObjectMapper();
+    String jsonString;
+    try {
+      jsonString = mapper.writeValueAsString(service.createCompletion(completionRequest));
+      System.out.println(jsonString);
+
+    } catch (JsonProcessingException e) {
+      e.printStackTrace();
+    } 
+      
   }
 }
