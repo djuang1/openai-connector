@@ -1,4 +1,4 @@
-package org.mule.extension.openai.internal;
+package org.mule.extension.openai.internal.types;
 
 import org.mule.runtime.api.value.Value;
 import org.mule.runtime.extension.api.values.*;
