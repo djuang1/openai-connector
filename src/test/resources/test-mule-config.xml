@@ -9,8 +9,40 @@
 	</openai:config>
 
 	<flow name="createCompletionFlow">
-		<openai:create-completion config-ref="OpenAI_Config" model="text-ada-001" maxTokens="10" temperature="0.4"/>
-            <logger level="INFO" message="#[payload]"/>
+		<openai:create-completion config-ref="OpenAI_Config" model="text-ada-001" maxTokens="10" temperature="0.4">
+			<openai:prompt><![CDATA[Hello, how are you?]]></openai:prompt>
+		</openai:create-completion>
+		<logger level="INFO" message="#[payload]"/>
+	</flow>
+	
+	<flow name="createChatCompletionFlow">
+		<openai:create-chat-completion config-ref="OpenAI_Config" model="gpt-3.5-turbo" maxTokens="10" temperature="0.4">
+			<openai:messages><![CDATA[#[output application/java
+---
+[{
+	role: "user",
+	content: "Hello!"
+}]]]]></openai:messages>
+		</openai:create-chat-completion>
+		<logger level="INFO" message="#[payload]"/>
+	</flow>
+	
+	<flow name="createImageUrlFlow">
+		<openai:create-image-url config-ref="OpenAI_Config">
+			<openai:prompt><![CDATA[penguin]]></openai:prompt>
+		</openai:create-image-url>
+		<logger level="INFO" message="#[payload]"/>
+	</flow>
+	
+	<flow name="createEmbeddingsFlow">
+		<openai:create-embeddings config-ref="OpenAI_Config" model="text-embedding-ada-002">
+			<openai:inputs><![CDATA[#[output application/java
+---
+[
+	"The food was delicious and the waiter..."
+]]]]></openai:inputs>
+		</openai:create-embeddings>
+		<logger level="INFO" message="#[payload]"/>
 	</flow>
 
 </mule>

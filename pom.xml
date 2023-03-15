@@ -4,10 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <!-- <groupId>com.dejim</groupId> -->
-    <groupId>68ef9520-24e9-4cf2-b2f5-620025690913</groupId>
+    <groupId>com.mulesoft.platform_se</groupId>
     <artifactId>openai</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <packaging>mule-extension</packaging>
     <name>OpenAI Extension</name>
 
@@ -16,11 +15,6 @@
         <artifactId>mule-modules-parent</artifactId>
         <version>1.1.10</version>
     </parent>
-    <!-- <parent>
-        <groupId>org.mule.connectors</groupId>
-        <artifactId>mule-certified-parent</artifactId>
-        <version>1.1.0</version>
-    </parent> -->
 
     <dependencies>
         <dependency>
@@ -58,5 +52,14 @@
 
 
     </dependencies>
+
+
+	<repositories>
+        <repository>
+            <id>mule</id>
+            <name>Mule Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
+        </repository>
+    </repositories>
 
 </project>
