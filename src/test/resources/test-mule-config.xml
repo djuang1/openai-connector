@@ -4,8 +4,10 @@
       xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
           http://www.mulesoft.org/schema/mule/openai http://www.mulesoft.org/schema/mule/openai/current/mule-openai.xsd">
 
+	<configuration-properties file="openai-properties.yaml" />
+
     <openai:config name="OpenAI_Config">
-		<openai:connection apiKey="" />
+		<openai:connection apiKey="${openai.apikey}" />
 	</openai:config>
 
 	<flow name="createCompletionFlow">
