@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 public class OpenAIConnectionProvider implements PoolingConnectionProvider<OpenAIConnection> {
 
-  private final Logger LOGGER = LoggerFactory.getLogger(OpenAIConnectionProvider.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(OpenAIConnectionProvider.class);
 
   @Parameter
   @DisplayName("API Key")
