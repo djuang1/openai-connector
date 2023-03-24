@@ -1,5 +1,6 @@
-package org.mule.extension.openai.internal;
+package org.mule.extension.openai.internal.connection.provider;
 
+import org.mule.extension.openai.internal.OpenAIConnection;
 import org.mule.runtime.api.connection.ConnectionException;
 import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
@@ -10,6 +11,7 @@ import org.mule.runtime.extension.api.annotation.param.display.Password;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.mule.runtime.extension.api.annotation.param.display.Placement;
 
 public class OpenAIConnectionProvider implements PoolingConnectionProvider<OpenAIConnection> {
 
@@ -18,11 +20,13 @@ public class OpenAIConnectionProvider implements PoolingConnectionProvider<OpenA
   @Parameter
   @DisplayName("API Key")
   @Password
+  @Placement(order = 1, tab = "General")
   private String apiKey;
 
   @Parameter
   @DisplayName("Timeout")
   @Optional(defaultValue = "30")
+  @Placement(order = 2, tab = "General")
   private Integer timeout;
 
   @Override

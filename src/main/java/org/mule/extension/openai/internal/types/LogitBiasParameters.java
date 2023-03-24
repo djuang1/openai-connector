@@ -5,13 +5,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.mule.runtime.extension.api.annotation.param.Parameter;
+import org.mule.runtime.extension.api.annotation.param.display.Placement;
 
 public class LogitBiasParameters {
 
 	@Parameter
+	@Placement(order = 1, tab = "General")
 	private String tokenId;
 
 	@Parameter
+	@Placement(order = 2, tab = "General")
 	private Integer biasValue;
 
 	public String getTokenId() {
