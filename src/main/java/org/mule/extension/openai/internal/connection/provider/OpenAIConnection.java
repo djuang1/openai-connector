@@ -1,6 +1,8 @@
-package org.mule.extension.openai.internal;
+package org.mule.extension.openai.internal.connection.provider;
 
 import java.time.Duration;
+
+import org.mule.runtime.extension.api.annotation.param.ConfigOverride;
 
 import com.theokanning.openai.service.OpenAiService;
 
@@ -8,7 +10,7 @@ public final class OpenAIConnection {
 
   private OpenAiService client;
 
-  public OpenAIConnection(String apiKey, Integer timeout) {
+  public OpenAIConnection(String apiKey, @ConfigOverride Integer timeout) {
     this.client = new OpenAiService(apiKey, Duration.ofSeconds(timeout));
   }
 

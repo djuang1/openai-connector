@@ -13,7 +13,7 @@ MuleSoft Connector for OpenAI's GPT APIs. It leverages the Java libraries from t
 <dependency>
     <groupId>com.mulesoft.platform_se</groupId>
     <artifactId>openai</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.12</version>
     <classifier>mule-plugin</classifier>
 </dependency>
 ```

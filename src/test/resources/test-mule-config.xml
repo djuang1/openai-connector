@@ -13,6 +13,7 @@
 	<flow name="createCompletionFlow">
 		<openai:create-completion config-ref="OpenAI_Config" model="text-ada-001" maxTokens="10" temperature="0.4">
 			<openai:prompt><![CDATA[Hello, how are you?]]></openai:prompt>
+			<openai:stops ><![CDATA[#[["stop"]]]]></openai:stops>
 		</openai:create-completion>
 		<logger level="INFO" message="#[payload]"/>
 	</flow>
