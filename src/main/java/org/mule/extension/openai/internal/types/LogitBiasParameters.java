@@ -25,7 +25,7 @@ public class LogitBiasParameters {
 		return biasValue;
 	}
 	
-	public static Map<String, Integer> toMap(List<LogitBiasParameters> logitBiasList) {		
+	public Map<String, Integer> toMap(List<LogitBiasParameters> logitBiasList) {		
 		Map<String, Integer> logitBiasMap = null;
 		
 		if (logitBiasList != null) {

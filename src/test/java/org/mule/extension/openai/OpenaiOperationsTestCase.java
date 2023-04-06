@@ -12,6 +12,7 @@ import org.mule.functional.junit4.MuleArtifactFunctionalTestCase;
 import com.theokanning.openai.completion.CompletionResult;
 import com.theokanning.openai.completion.chat.ChatCompletionResult;
 import com.theokanning.openai.embedding.EmbeddingResult;
+import com.theokanning.openai.image.ImageResult;
 
 import org.junit.Test;
 
@@ -48,13 +49,15 @@ public class OpenaiOperationsTestCase extends MuleArtifactFunctionalTestCase {
 	
 	@Test
 	public void executeCreateImageUrl() throws Exception {
-		List<?> payloadValue = ((List<?>) flowRunner("createImageUrlFlow")
+		ImageResult payloadValue = ((ImageResult) flowRunner("createImageUrlFlow")
 				.run()
 				.getMessage()
 				.getPayload()
 				.getValue());
 
-		assertThat((String) payloadValue.get(0), CoreMatchers.not(isEmptyOrNullString()));
+		String choiceText = payloadValue.getData().get(0).getUrl().toString();
+
+		assertThat(choiceText, CoreMatchers.not(isEmptyOrNullString()));
 	}
 	
 	@Test

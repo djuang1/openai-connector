@@ -35,10 +35,11 @@ import com.theokanning.openai.embedding.EmbeddingRequest;
 import com.theokanning.openai.embedding.EmbeddingResult;
 import com.theokanning.openai.image.CreateImageRequest;
 import com.theokanning.openai.image.Image;
+import com.theokanning.openai.image.ImageResult;
 
 public class OpenAIOperations {
 
-	@MediaType(value = ANY, strict = false)
+	@MediaType("application/java")
 	@DisplayName("Create completion")
 	public CompletionResult createCompletion(@Connection OpenAIConnection connection,
 			@OfValues(CompletionModelsValueProvider.class) @Summary("ID of the model to use") String model,
@@ -80,7 +81,7 @@ public class OpenAIOperations {
 		return connection.getClient().createCompletion(completionRequest);
 	}
 
-	@MediaType(value = ANY, strict = false)
+	@MediaType("application/java")
 	@DisplayName("Create chat completion")
 	public ChatCompletionResult createChatCompletion(@Connection OpenAIConnection connection,
 			@OfValues(ChatModelsValueProvider.class) @Summary("ID of the model to use.") String model,
@@ -138,9 +139,9 @@ public class OpenAIOperations {
 		return imagesBytes;
 	}
 
-	@MediaType(value = ANY, strict = false)
+	@MediaType("application/java")
 	@DisplayName("Create image url")
-	public List<String> createImageUrl(@Connection OpenAIConnection connection,
+	public ImageResult createImageUrl(@Connection OpenAIConnection connection,
 			@Content(primary = true) @Summary("A text description of the desired image(s). The maximum length is 1000 characters.") String prompt,
 			@Optional(defaultValue = "1") @Summary("The number of images to generate. Must be between 1 and 10.") Integer n,
 			@Optional(defaultValue = "1024x1024") @OfValues(ImageSizeValueProvider.class) @Summary("The size of the generated images.") String size,
@@ -154,17 +155,10 @@ public class OpenAIOperations {
 				.user(user)
 				.build();
 
-		List<String> imagesUrl = new ArrayList<>();
-		List<Image> images = connection.getClient().createImage(imageRequest).getData();
-		
-		for (Image image : images) {
-			imagesUrl.add(image.getUrl());
-		}
-
-		return imagesUrl;
+		return connection.getClient().createImage(imageRequest);
 	}
 	
-	@MediaType(value = ANY, strict = false)
+	@MediaType("application/java")
 	@DisplayName("Create embeddings")
 	public EmbeddingResult createEmbeddings(@Connection OpenAIConnection connection,
 			@OfValues(EmbeddingsModelsValueProvider.class) @Summary("ID of the model to use.") String model,
