@@ -11,7 +11,7 @@ import org.mule.runtime.extension.api.annotation.error.ErrorTypes;
 import org.mule.runtime.extension.api.annotation.license.RequiresEnterpriseLicense;
 
 @Xml(prefix = "openai")
-@Extension(name = "OpenAI Connector", category = CERTIFIED, vendor = "Dejim Juang")
+@Extension(name = "OpenAI Connector - Mule 4", category = CERTIFIED, vendor = "Dejim Juang")
 @RequiresEnterpriseLicense(allowEvaluationLicense = true)
 @ErrorTypes(OpenAIErrorType.class)
 @Configurations(OpenAIConfiguration.class)

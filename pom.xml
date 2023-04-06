@@ -8,7 +8,7 @@
     <artifactId>openai</artifactId>
     <version>1.0.12</version>
     <packaging>mule-extension</packaging>
-    <name>OpenAI Extension</name>
+    <name>OpenAI Connector - Mule 4</name>
 
     <parent>
         <groupId>org.mule.extensions</groupId>
